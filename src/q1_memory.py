@@ -24,6 +24,7 @@ def json_to_df(file_path: str) -> pd.DataFrame:
     df = pd.DataFrame(data)
     return df
 
+
 @profile
 def get_top_10_dates(dates: pd.DataFrame) -> list:
     """
@@ -31,8 +32,9 @@ def get_top_10_dates(dates: pd.DataFrame) -> list:
     need to be with whole register.
     Return: List of top 10 order by more tweets counts desc.
     """
-    top_10 = dates.value_counts().index[:11]
+    top_10 = dates.value_counts().index[:10]
     return list(top_10)
+
 
 @profile
 def format_date(data: pd.DataFrame) -> list:
@@ -40,12 +42,14 @@ def format_date(data: pd.DataFrame) -> list:
     data['date'] = data['date'].dt.strftime("%Y-%m-%d")
     return data
 
+
 @profile
 def get_tweeter_user_per_day(date: str, data: pd.DataFrame) -> str:
     date_rows = data[data['date'] == date]
     grouped_df = date_rows.groupby('user_name').count()
     user = grouped_df.sort_values('date', ascending=False).head(1).index[0]
     return user
+
 
 @profile
 def q1_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
