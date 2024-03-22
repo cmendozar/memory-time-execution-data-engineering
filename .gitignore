@@ -1,6 +1,7 @@
 # Folders
 data/*
-.venv/
+
 
 # python stuffs
 src/__pycache__/*
+.venv/
