@@ -8,7 +8,7 @@ from collections import Counter
 
 @timer
 @profile
-def q2_memory(file_path: str) -> List[Tuple[str, int]]:
+def q3_memory(file_path: str) -> List[Tuple[str, int]]:
     user_counts = Counter()
     pattern = r'\B@([a-zA-Z0-9_]+)\b'
     with open(file_path, 'r') as file:
@@ -28,5 +28,5 @@ def q2_memory(file_path: str) -> List[Tuple[str, int]]:
 
 if __name__ == '__main__':
     file_path = 'data/farmers-protest-tweets-2021-2-4.json'
-    result = q2_memory(file_path)
+    result = q3_memory(file_path)
     print(result)
