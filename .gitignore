@@ -1,6 +1,6 @@
 # Folders
 data/*
-
+logs/*
 
 # python stuffs
 src/__pycache__/*
